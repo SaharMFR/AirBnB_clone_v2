@@ -9,6 +9,8 @@ from datetime import datetime
 
 
 def do_pack():
+    """ Stores the archives in the folder `versions` """
+
     try:
         local("mkdir -p versions")
         date = (datetime.now()).strftime("%Y%m%d%H%M%S")
