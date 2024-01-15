@@ -8,9 +8,21 @@ from fabric.api import *
 from datetime import datetime
 import os
 
-do_pack = __import__('1-pack_web_static').do_pack
-
 env.hosts = ['35.175.129.78', '100.25.45.229']
+
+
+@runs_once
+def do_pack():
+    """ Stores the archives in the folder `versions` """
+
+    try:
+        local("mkdir -p versions")
+        date = (datetime.now()).strftime("%Y%m%d%H%M%S")
+        path = "versions/web_static_{}.tgz".format(date)
+        local("tar -czvf {} web_static".format(path))
+        return path
+    except Exception:
+        return None
 
 
 def do_deploy(archive_path):
