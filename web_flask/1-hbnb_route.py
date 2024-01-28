@@ -2,8 +2,8 @@
 """
 Starts a Flask web application listening on `0.0.0.0`, port `5000`.
 Routes:
-	`/`: display `Hello HBNB!`.
-	`/hbnb`: display `HBNB`.
+    `/`: display `Hello HBNB!`.
+    `/hbnb`: display `HBNB`.
 """
 
 from flask import Flask
