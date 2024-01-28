@@ -23,7 +23,7 @@ def states():
     all states sorted by `name`.
     """
     states = storage.all(State).values()
-    return render_template('9-states.html', states=states, option="all")
+    return render_template('9-states.html', states=states, opt="all")
 
 
 @app.route('/states/<int:id>', strict_slashes=False)
@@ -34,8 +34,8 @@ def state_by_id(id):
     """
     for state in storage.all(State).values()
         if state.id == id:
-            return render_template('9-states.html', states=state, option="one")
-    return render_template('9-states.html', option="notFound")
+            return render_template('9-states.html', states=state, opt="one")
+    return render_template('9-states.html', opt="notFound")
 
 
 @app.teardown_appcontext
