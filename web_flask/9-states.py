@@ -8,10 +8,10 @@ Routes:
     `/states/<id>`: diplay a HTML page contains the `State` with this
         `id` and a list of its cities if found, OR `Not found!`.
 """
-
 from flask import Flask, render_template
 from models import storage
 from models.state import State
+
 
 app = Flask(__name__)
 
@@ -23,7 +23,7 @@ def states():
     all states sorted by `name`.
     """
     states = storage.all(State)
-    return render_template('9-states.html', states=states, opt="all")
+    return render_template('9-states.html', states=states, opt='all')
 
 
 @app.route('/states/<id>', strict_slashes=False)
@@ -32,10 +32,10 @@ def state_by_id(id):
     Returns rendered template `9-states.html` with info about
     the state with passed `id`.
     """
-    for state in storage.all(State).values()
+    for state in storage.all(State).values():
         if state.id == id:
-            return render_template('9-states.html', states=state, opt="one")
-    return render_template('9-states.html', states=state, opt="notFound")
+            return render_template('9-states.html', states=state, opt='id')
+    return render_template('9-states.html', states=state, opt='none')
 
 
 @app.teardown_appcontext
@@ -45,4 +45,4 @@ def teardown(self):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port="5000")
