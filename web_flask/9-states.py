@@ -22,7 +22,7 @@ def states():
     Returns rendered template `9-states.html` with a list
     all states sorted by `name`.
     """
-    states = storage.all(State).values()
+    states = storage.all(State)
     return render_template('9-states.html', states=states, opt="all")
 
 
