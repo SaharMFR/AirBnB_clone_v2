@@ -26,7 +26,7 @@ def states():
     return render_template('9-states.html', states=states, opt="all")
 
 
-@app.route('/states/<int:id>', strict_slashes=False)
+@app.route('/states/<id>', strict_slashes=False)
 def state_by_id(id):
     """
     Returns rendered template `9-states.html` with info about
