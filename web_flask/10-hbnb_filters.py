@@ -12,8 +12,8 @@ app = Flask(__name__)
 @app.route("/hbnb_filters", strict_slashes=False)
 def hbnb_filters():
     """Returns rendered template `10-hbnb_filters.html`"""
-    s = storage.all("State")
-    a = storage.all("Amenity")
+    s = storage.all("State").values()
+    a = storage.all("Amenity").values()
     return render_template('10-hbnb_filters.html', states=s, amenities=a)
 
 
